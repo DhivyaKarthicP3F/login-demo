@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Card, Image, Col, Layout, FloatButton, Form, InputNumber, Row, Typography, Switch, Slider, Input, Select, theme, Space, Alert } from 'antd';
+import { Button, Col, Layout, FloatButton, Form, Row, Typography, Input} from 'antd';
 import logo from './assets/logo.png';
 import image from './assets/image.png';
 import { MessageOutlined } from '@ant-design/icons';
@@ -9,27 +9,12 @@ const { Header, Footer, Sider, Content } = Layout;
 
 
 const Signup = () => {
+
     const [form] = Form.useForm();
-    const [comment, setComment] = useState("")
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [passwordBGcolor, setPasswordBGcolor] = useState("white")
     const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
     const mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
 
-    const analyze = (event) => {
-
-        if (strongRegex.test(event.target.value)) {
-            setPasswordBGcolor("#0F9D58");
-            setComment("Your password is secure")
-        } else if (mediumRegex.test(event.target.value)) {
-            setPasswordBGcolor("#F4B400");
-            setComment("Your password is fair")
-        } else {
-            setPasswordBGcolor("#DB4437");
-            setComment("Your password is weak")
-        }
-    }
+    
 
     const onFinish = (values) => {
         
@@ -105,15 +90,23 @@ const Signup = () => {
                                         required: true,
                                         message: 'Please provide your password!',
                                     },
+                                    {
+                                        validator: (_, value) => {
+                                            if (strongRegex.test(value)) {
+                                              return Promise.resolve();
+                                            } else if(mediumRegex.test(value)){
+                                                return Promise.reject('Password strength : fair');
+                                            }
+                                            else{
+                                              return Promise.reject('Password strength is weak. Include aphabets/numbers/special characters');
+                                            }
+                                           }
+                                    }
                                 ]}
                             >
-                                <Input.Password
-                                    onChange={analyze}
-                                />
+                                <Input.Password/>
                             </Form.Item>
-                            <div style={{ marginBottom: '20px', color: passwordBGcolor }} >
-                                {comment}
-                            </div>
+                            
                             <Form.Item
                                 label="Confirm Password"
                                 name="confirmPassword"
@@ -122,7 +115,7 @@ const Signup = () => {
                                 rules={[
                                     {
                                         required: true,
-                                        message: 'Please provide your confirm password!',
+                                        message: 'Please confirm your password!',
                                     },
                                     ({ getFieldValue }) => ({
                                         validator(_, value) {
