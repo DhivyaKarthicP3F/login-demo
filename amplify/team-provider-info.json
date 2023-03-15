@@ -1,0 +1,31 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-logindemo-dev-103227-authRole",
+      "UnauthRoleArn": "arn:aws:iam::039289871235:role/amplify-logindemo-dev-103227-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::039289871235:role/amplify-logindemo-dev-103227-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-logindemo-dev-103227-deployment",
+      "UnauthRoleName": "amplify-logindemo-dev-103227-unauthRole",
+      "StackName": "amplify-logindemo-dev-103227",
+      "StackId": "arn:aws:cloudformation:us-east-1:039289871235:stack/amplify-logindemo-dev-103227/31a4ec70-c28e-11ed-8b45-12d8b75596fd",
+      "AmplifyAppId": "dx4kmgoohf92z"
+    },
+    "categories": {
+      "function": {
+        "demoUserlogin": {
+          "deploymentBucketName": "amplify-logindemo-dev-103227-deployment",
+          "s3Key": "amplify-builds/demoUserlogin-3849723648516c434244-build.zip"
+        },
+        "logindemodemoAdminAppLayer": {
+          "deploymentBucketName": "amplify-logindemo-dev-103227-deployment",
+          "s3Key": "amplify-builds/logindemodemoAdminAppLayer-LambdaLayerVersion73344fbc-build.zip"
+        }
+      },
+      "auth": {
+        "logindemoe89ea68b": {},
+        "userPoolGroups": {}
+      }
+    }
+  }
+}
