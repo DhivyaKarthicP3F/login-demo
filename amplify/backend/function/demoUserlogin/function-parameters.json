@@ -1,5 +1,14 @@
 {
-  "permissions": {},
+  "permissions": {
+    "auth": {
+      "logindemoe89ea68b": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
   "lambdaLayers": [
     {
       "type": "ProjectLayer",

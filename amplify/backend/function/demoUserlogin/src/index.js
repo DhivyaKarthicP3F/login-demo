@@ -1,5 +1,6 @@
 
 /* Amplify Params - DO NOT EDIT
+	AUTH_LOGINDEMOE89EA68B_USERPOOLID
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */

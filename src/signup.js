@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Button, Col, Layout, FloatButton, Form, Row, Typography, Input} from 'antd';
+import { Button, Col, Layout, FloatButton, Form, Row, Typography, Input } from 'antd';
 import logo from './assets/logo.png';
 import image from './assets/image.png';
 import { MessageOutlined } from '@ant-design/icons';
+import { Auth } from 'aws-amplify';
 
 const { Title, Paragraph, Text, Link } = Typography;
 const { Header, Footer, Sider, Content } = Layout;
@@ -14,12 +15,32 @@ const Signup = () => {
     const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
     const mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
 
-    
+    async function signUp(values) {
+        try {
+            const { user } = await Auth.signUp({
+                username: values.email,
+                password: values.password,
+                attributes: {
+                    email: values.email,          // optional
+                    company_name: values.companyName 
+                },
+                autoSignIn: { // optional - enables auto sign in after user is confirmed
+                    enabled: true,
+                }
+            });
+            console.log(user);
+        } catch (error) {
+            console.log('error signing up:', error);
+        }
+
+    }
+
 
     const onFinish = (values) => {
-        
-            console.log('Success:', values);
-        
+
+        console.log('Success:', values);
+        signUp(values);
+
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
@@ -93,20 +114,20 @@ const Signup = () => {
                                     {
                                         validator: (_, value) => {
                                             if (strongRegex.test(value)) {
-                                              return Promise.resolve();
-                                            } else if(mediumRegex.test(value)){
+                                                return Promise.resolve();
+                                            } else if (mediumRegex.test(value)) {
                                                 return Promise.reject('Password strength : fair');
                                             }
-                                            else{
-                                              return Promise.reject('Password strength is weak. Include aphabets/numbers/special characters');
+                                            else {
+                                                return Promise.reject('Password strength is weak. Include aphabets/numbers/special characters');
                                             }
-                                           }
+                                        }
                                     }
                                 ]}
                             >
-                                <Input.Password/>
+                                <Input.Password />
                             </Form.Item>
-                            
+
                             <Form.Item
                                 label="Confirm Password"
                                 name="confirmPassword"
@@ -127,7 +148,7 @@ const Signup = () => {
                                     }),
                                 ]}
                             >
-                                <Input.Password/>
+                                <Input.Password />
                             </Form.Item>
 
                             <Form.Item

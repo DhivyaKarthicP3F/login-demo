@@ -15,16 +15,23 @@
       "function": {
         "demoUserlogin": {
           "deploymentBucketName": "amplify-logindemo-dev-103227-deployment",
-          "s3Key": "amplify-builds/demoUserlogin-3849723648516c434244-build.zip"
+          "s3Key": "amplify-builds/demoUserlogin-31366d6b723558795476-build.zip"
         },
         "logindemodemoAdminAppLayer": {
           "deploymentBucketName": "amplify-logindemo-dev-103227-deployment",
           "s3Key": "amplify-builds/logindemodemoAdminAppLayer-LambdaLayerVersion73344fbc-build.zip"
+        },
+        "AdminQueriese9305055": {
+          "deploymentBucketName": "amplify-logindemo-dev-103227-deployment",
+          "s3Key": "amplify-builds/AdminQueriese9305055-5554396454765237444a-build.zip"
         }
       },
       "auth": {
         "logindemoe89ea68b": {},
         "userPoolGroups": {}
+      },
+      "api": {
+        "AdminQueries": {}
       }
     }
   }

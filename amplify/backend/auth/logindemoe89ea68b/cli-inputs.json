@@ -59,6 +59,7 @@
       ]
     },
     "breakCircularDependency": true,
-    "dependsOn": []
+    "dependsOn": [],
+    "adminQueryGroup": "tenantAdmin"
   }
-}
+} 
