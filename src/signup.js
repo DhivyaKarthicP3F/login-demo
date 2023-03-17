@@ -3,7 +3,10 @@ import { Button, Col, Layout, FloatButton, Form, Row, Typography, Input } from '
 import logo from './assets/logo.png';
 import image from './assets/image.png';
 import { MessageOutlined } from '@ant-design/icons';
-import { Auth } from 'aws-amplify';
+import { Auth, Amplify } from 'aws-amplify';
+import awsconfig from './aws-exports';
+Amplify.configure(awsconfig);
+
 
 const { Title, Paragraph, Text, Link } = Typography;
 const { Header, Footer, Sider, Content } = Layout;
@@ -22,7 +25,7 @@ const Signup = () => {
                 password: values.password,
                 attributes: {
                     email: values.email,          // optional
-                    company_name: values.companyName 
+                    
                 },
                 autoSignIn: { // optional - enables auto sign in after user is confirmed
                     enabled: true,
