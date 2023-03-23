@@ -25,6 +25,9 @@
       "auth": {
         "logindemoe89ea68b": {},
         "userPoolGroups": {}
+      },
+      "api": {
+        "loginDemoAPI": {}
       }
     }
   }

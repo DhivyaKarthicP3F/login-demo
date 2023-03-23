@@ -23,5 +23,12 @@ export type AmplifyDependentResourcesAttributes = {
         "userPoolGroups": {
             "tenantAdminGroupRole": "string"
         }
+    },
+    "api": {
+        "loginDemoAPI": {
+            "GraphQLAPIKeyOutput": "string",
+            "GraphQLAPIIdOutput": "string",
+            "GraphQLAPIEndpointOutput": "string"
+        }
     }
 }
