@@ -8,12 +8,6 @@ export type AmplifyDependentResourcesAttributes = {
         },
         "logindemodemoAdminAppLayer": {
             "Arn": "string"
-        },
-        "AdminQueriese9305055": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string"
         }
     },
     "auth": {
@@ -28,13 +22,6 @@ export type AmplifyDependentResourcesAttributes = {
         },
         "userPoolGroups": {
             "tenantAdminGroupRole": "string"
-        }
-    },
-    "api": {
-        "AdminQueries": {
-            "RootUrl": "string",
-            "ApiName": "string",
-            "ApiId": "string"
         }
     }
 }
