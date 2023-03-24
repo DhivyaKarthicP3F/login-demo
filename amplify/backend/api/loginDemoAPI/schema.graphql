@@ -4,7 +4,7 @@ input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONL
 
 type p3fAudit @model {
   id: ID!
-  module: String!
+  resource: String!
   action: String!  
   byUser: String!
   byDateTime: AWSDateTime!

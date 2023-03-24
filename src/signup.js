@@ -5,6 +5,7 @@ import image from './assets/image.png';
 import { MessageOutlined } from '@ant-design/icons';
 import { Auth, Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';
+import { createAuditRecord, listAuditRecords } from './api/auditAPI';
 Amplify.configure(awsconfig);
 
 
@@ -17,6 +18,15 @@ const Signup = () => {
     const [form] = Form.useForm();
     const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
     const mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+
+    // Example code to list the audit records with pagination and filter
+    
+async function listAudit(nextToken) {
+    let filter = { resource: { eq: 'User' } , action: { eq: 'Create' }};
+        const auditRecords = await listAuditRecords(filter, 10, nextToken);
+        console.log("auditRecords: ", auditRecords);
+    }
+    
 
     async function signUp(values) {
         try {
@@ -32,6 +42,9 @@ const Signup = () => {
                 }
             });
             console.log(user);
+            // create audit record
+            let loggedUser = await Auth.currentAuthenticatedUser();
+            createAuditRecord('User', 'Create', loggedUser,  new Date().toISOString(), `User ${values.email} created`);
         } catch (error) {
             console.log('error signing up:', error);
         }
