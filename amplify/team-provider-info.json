@@ -20,6 +20,14 @@
         "logindemodemoAdminAppLayer": {
           "deploymentBucketName": "amplify-logindemo-dev-103227-deployment",
           "s3Key": "amplify-builds/logindemodemoAdminAppLayer-LambdaLayerVersion73344fbc-build.zip"
+        },
+        "logindemoe89ea68bCustomMessage": {
+          "REDIRECTURL": "",
+          "EMAILSUBJECT": "Welcome to P3Fusion! You can start using your account",
+          "EMAILMESSAGE": "Welcome to P3Fusion! Your account has been successfully created in P3Fusion"
+        },
+        "logindemoe89ea68bPostConfirmation": {
+          "GROUP": "tenantAdmin"
         }
       },
       "auth": {

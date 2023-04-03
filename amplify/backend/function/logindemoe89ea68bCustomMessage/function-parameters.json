@@ -1,0 +1,26 @@
+{
+  "trigger": true,
+  "modules": [
+    "verification-link"
+  ],
+  "parentResource": "logindemoe89ea68b",
+  "functionName": "logindemoe89ea68bCustomMessage",
+  "resourceName": "logindemoe89ea68bCustomMessage",
+  "parentStack": "auth",
+  "triggerEnvs": [
+    {
+      "key": "RESOURCENAME",
+      "value": "resourceName"
+    }
+  ],
+  "triggerDir": "/snapshot/repo/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/CustomMessage",
+  "triggerTemplate": "CustomMessage.json.ejs",
+  "triggerEventPath": "CustomMessage.event.json",
+  "roleName": "logindemoe89ea68bCustomMessage",
+  "skipEdit": true,
+  "REDIRECTURL": "",
+  "EMAILSUBJECT": "Welcome to P3Fusion! You can start using your account",
+  "EMAILMESSAGE": "Welcome to P3Fusion! Your account has been successfully created in P3Fusion",
+  "RESOURCENAME": "resourceName",
+  "enableCors": false
+}
